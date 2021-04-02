@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Look! The update worked (if you see this in a text editor, of course :)" > /tmp/worked.txt
+xdg-open /tmp/worked.txt

@@ -1,0 +1,71 @@
+#! /bin/bash
+
+if [ "$1" == "-v" ]; then
+ echo 20210321
+fi
+
+if [ "$1" == "--version" ]; then
+ echo 20210321
+fi
+
+if [ "$1" == "-c" ]; then
+ echo -e "• sample changelog goes here"
+fi
+
+if [ "$1" == "--changelog" ]; then
+ echo -e "• sample changelog goes here"
+fi
+
+
+if [ "$1" == "-a" ]; then
+ echo -e "This is brought to you by \e[1mAlexandru Balan\e[21m under the"
+ echo -e "\e[1mPearProject Team\e[21m"
+ echo ""
+ echo "Copyright 2021 © PearProject All Rights Reserved"
+fi
+
+
+if [ "$1" == "--authors" ]; then
+ echo -e "This is brought to you by \e[1mAlexandru Balan\e[21 munder the"
+ echo -e "\e[1mPearProject Team\e[21m"
+ echo ""
+ echo "Copyright 2021 © PearProject All Rights Reserved"
+fi
+
+if [ "$1" == "-k" ]; then
+ echo -e "\e[1;4mChecking for updates, please wait...\e[0m"
+ /usr/bin/update-mgr
+fi
+
+if [ "$1" == "--check" ]; then
+ echo -e "\e[1;4mChecking for updates, please wait...\e[0m"
+ /usr/bin/update-mgr
+fi
+
+if [ "$1" == "" ]; then
+ echo -e "\e[1;4mWelcome to the pearOS Update Manager\e[24m"
+ echo -e "Usage:  -v  --version      get this update's version"
+ echo -e "        -c  --changelog    show the changelog"
+ echo -e "        -a  --author       show the author of the pear Updates Manager"
+ echo -e "        -k  --check        Check for updates immediatly"
+ echo -e "        -h  --help         display this help screen\e[21m"
+fi
+
+
+if [ "$1" == "-h" ]; then
+ echo -e "\e[1;4mWelcome to the pearOS Update Manager\e[24m"
+ echo -e "Usage:  -v  --version      get this update's version"
+ echo -e "        -c  --changelog    show the changelog"
+ echo -e "        -a  --author       show the author of the pear Updates Manager"
+ echo -e "        -k  --check        Check for updates immediatly"
+ echo -e "        -h  --help         display this help screen\e[0m"
+fi
+
+if [ "$1" == "--help" ]; then
+ echo -e "\e[1;4mWelcome to the pearOS Update Manager\e[24m"
+ echo -e "Usage:  -v  --version      get this update's version"
+ echo -e "        -c  --changelog    show the changelog"
+ echo -e "        -a  --author       show the author of the pear Updates Manager"
+ echo -e "        -k  --check        Check for updates immediatly"
+ echo -e "        -h  --help         display this help screen\e[21m"
+fi
