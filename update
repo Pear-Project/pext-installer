@@ -1,0 +1,58 @@
+#! /bin/bash
+
+if [ "$1" == "-v" ]; then
+ echo 1
+fi
+
+if [ "$1" == "--version" ]; then
+ echo 1
+fi
+
+if [ "$1" == "-c" ]; then
+ echo -e "• update template"
+fi
+
+if [ "$1" == "--changelog" ]; then
+ echo -e "• update template"
+fi
+
+
+if [ "$1" == "-a" ]; then
+ echo -e "This is brought to you by \e[1mAlexandru Balan\e[21m under the"
+ echo -e "\e[1mPearProject Team\e[21m"
+ echo ""
+ echo "Copyright 2021 © PearProject All Rights Reserved"
+fi
+
+
+if [ "$1" == "--authors" ]; then
+ echo -e "This is brought to you by \e[1mAlexandru Balan\e[21 munder the"
+ echo -e "\e[1mPearProject Team\e[21m"
+ echo ""
+ echo "Copyright 2021 © PearProject All Rights Reserved"
+fi
+
+if [ "$1" == "" ]; then
+ echo -e "\e[1;4mWelcome to the pearOS Update Manager\e[24m"
+ echo -e "Usage:  -v  --version      check the installed update version"
+ echo -e "        -c  --changelog    chech what was changed in the last update"
+ echo -e "        -a  --author       check the author of the pear Updates Manager"
+ echo -e "        -h  --help         display this help screen"
+fi
+
+
+if [ "$1" == "-h" ]; then
+ echo -e "\e[1;4mWelcome to the pearOS Update Manager\e[24m"
+ echo -e "Usage:  -v  --version      check the installed update version"
+ echo -e "        -c  --changelog    chech what was changed in the last update"
+ echo -e "        -a  --author       check the author of the pear Updates Manager"
+ echo -e "        -h  --help         display this help screen"
+fi
+
+if [ "$1" == "--help" ]; then
+ echo -e "\e[1;4mWelcome to the pearOS Update Manager\e[24m"
+ echo -e "Usage:  -v  --version      check the installed update version"
+ echo -e "        -c  --changelog    chech what was changed in the last update"
+ echo -e "        -a  --author       check the author of the pear Updates Manager"
+ echo -e "        -h  --help         display this help screen"
+fi

@@ -1,0 +1,60 @@
+#! /bin/python3
+
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk as gtk 
+import os
+import subprocess
+import configparser
+
+class Main:
+    def __init__(self):
+        gladeFile = "/usr/share/pext-installer/pext-installer.glade"
+        self.builder = gtk.Builder()
+        self.builder.add_from_file(gladeFile)
+        self.builder.connect_signals(self)
+        window = self.builder.get_object("main_Window") # get main window from the .glade file
+        window.connect("delete-event", gtk.main_quit) # make the window closable
+        window.show() # show the window
+        updateButton = self.builder.get_object("updateButton") # get the button for starting the update
+        updateButton.connect("pressed", self.startUpdate) # connect the button the the "clicked" signal and tell it what to do (start the function "startUpdate")
+        self.checkUpdate()
+
+    def startUpdate(self, widget):
+        print("update started!")
+        try:
+            available = subprocess.check_output("ls -a  /tmp/system-update | grep -F '.pext'", shell=True)
+            if available != "":
+                os.system("/tmp/system-update/*.pext")
+                progress_bar = self.builder.get_object("progress_bar")
+                progress_bar.pulse()
+            print("no update available!") # add a window in glade with an error saying that no updates are available
+        except:
+            print("internal application error") # add a window in glade with an error saying that no updates are available
+        self.checkUpdate()
+
+    def checkUpdate(self):
+        updateLabel = self.builder.get_object("idLabel") # get the label for showing if updates available
+        updateName = self.builder.get_object("idUpdate") #get update name lol
+        print("checking for updates!")
+
+        try:
+            updates = subprocess.check_output("ls -a  /tmp/system-update | grep -F '.pext'", shell=True)
+            if updates != "":
+                print(updates)
+                updateLabel.set_markup("<b>An update is ready to install</b>")
+                config = configparser.ConfigParser()
+                config.sections()
+                config.read('/tmp/system-update/update.ini')
+                config.sections()
+                nice = config['pext-header']['UpdateName']
+                updateName.set_markup(nice)
+                
+            else:
+                updateLabel.set_markup("No updates available!")
+        except:
+            updateLabel.set_markup("No updates available!")
+
+if __name__ == '__main__':
+    main = Main()
+    gtk.main()
