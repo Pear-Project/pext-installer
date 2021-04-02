@@ -19,5 +19,18 @@ Light mode PEXT Installer
 
 The Screenshots are showing an update to the [Piri voice assistant](https://github.com/alxb421/piri-backend)
 
+## Installation
+```sh
+git clone https://github.com/alxb421/pext-installer.git
+sudo mv pext-installer /usr/share/
+```
+## Usage
+You can test it by doing this:
+```sh
+mkdir /tmp/system-update
+cd pext-installer/system-update /tmp
+python3 /usr/share/pext-installer/pext-installer
+```
+
 ## Note
 The `Advanceed`, `?` and ` [] Automatically keep my Pear up to date` buttons are just visual. I need to add settings in a future update
