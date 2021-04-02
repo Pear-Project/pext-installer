@@ -27,7 +27,6 @@ sudo mv pext-installer /usr/share/
 ## Usage
 You can test it by doing this:
 ```sh
-mkdir /tmp/system-update
 cd pext-installer/system-update /tmp
 python3 /usr/share/pext-installer/pext-installer
 ```
