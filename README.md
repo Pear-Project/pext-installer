@@ -6,6 +6,7 @@ A PEXT file is used by the [update manager](https://github.com/alxb421/update-mg
 
 ## Languages:
 Python was used for the backend( thanks to [axtlos](https://github.com/axtloss)
+
 Glade was used for the frontend(nice UI :)  )
 
 ## Screenshots
